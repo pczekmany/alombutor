@@ -4,8 +4,8 @@ require_once('class.php');
 require_once('tartalomvalasztas.php');
 
 $array = array('tartalom' => $tartalom,
-				'alcim' => $alcim,
-				'admin_konyvtar' => $admin_konyvtar);
+		'alcim' => $alcim,
+		'admin_konyvtar' => $admin_konyvtar);
 	 
 $index_html = new html_blokk;
 
