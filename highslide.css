@@ -12,7 +12,8 @@
 }
 .highslide img {
 	border: 2px solid silver;
-        width: 186px;
+        width: 180px;
+        margin: 4px;
 }
 .highslide:hover img {
 	border-color: gray;

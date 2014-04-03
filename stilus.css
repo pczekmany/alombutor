@@ -3,7 +3,7 @@ body{
     padding: 0;
     background-color: #82756c;
     font-family: Verdana, Arial;
-	
+    color: #222;
 }
 
 #keret{
@@ -250,7 +250,6 @@ body{
     font-weight: normal;
 }
 
-
 .controlleft {
     float: right;
     display: block; 
@@ -275,4 +274,17 @@ body{
 #kepfelirat {
 	text-align: center;
 	height: 40px;
+}
+
+.termek_tablazat{
+    margin: 20px 0px 20px 0px;
+}
+
+.termek_tablazat td{
+    padding: 3px;
+}
+
+.termek_tablazat td:nth-child(1){
+    font-weight: bold;
+    width: 150px;
 }
