@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,7 +7,6 @@
 <meta name="Description" content="" />
 <link rel="stylesheet" href="stilus.css" />
 <script type="text/javascript" src="script.js"></script>
-<script src="AC_RunActiveContent.js" language="javascript"></script>
 </head>
 <body>
     <div id="keret">
@@ -22,6 +22,10 @@
             <a href="?menu=konyhak">Konyhák</a>
             <a href="#">Tálalók</a>
             <a href="#">Étkezők</a>
+			<a href="#">Nappali elemes bútorok</a>
+			<a href="#">Szekrénysorok</a>
+			<a href="#">Gardróbok</a>
+			<a href="#">Kanapék</a>
         </div>
         <div id="tartalom">
             {tartalom}
@@ -34,23 +38,51 @@
             </div>
             <div class="cimlap_csempe">
                 <h2>Nyitvatartás</h2>
-				<div>
+				<div class="cimlap_csempe_kep">
 				   <img src="graphics/nyitva.jpg" alt="" />
 				   <img src="graphics/nyitva_kep.jpg" alt="" />
+				</div>
+				<div class="cimlap_csempe_szoveg">
+				   NYITVATARTÁS <br /><br />
+				   Hétfő - Péntek: 9.00-17.00<br /><br />
+				   Szombat:<br />9.00 - 12.00<br /><br />
+				   Térkép és útvonaltervező
 				</div>
                 <a href="?menu=nyitvatartas">Tovább</a>
             </div>
             <div class="cimlap_csempe" style="margin-right: 0px;">
                 <h2>Elérhetőségek!</h2>
-				<div>
+				<div class="cimlap_csempe_kep">
 				   <img src="graphics/eler_hatter1.jpg" alt="" />
 				   <img src="graphics/eler_hatter2.jpg" alt="" />
+				</div>
+				<div class="cimlap_csempe_szoveg">
+				   CÍM:<br />
+				   Tatabánya, Alkotmány út 33/a.<br />
+				   (kertvárosi körforgalomnál)<br /><br /><br />
+				   TELEFON/FAX:<br />
+				   +36 20 331 4113, +36 34 748 068
 				</div>
                 <a href="?menu=elerhetosegek">Tovább</a>
             </div>
         </div>
         <div id="lablec">
-            
+		   <div id="lablec_first">
+			  2014 | Álom BÚTORHÁZ
+		   </div>
+		   <div id="lablec_second">
+			  ELÉRHETŐSÉGEK: <br />
+			  <span>
+			  Tatabánya, Alkotmány út 33/a.<br />
+			  (kertvárosi körforgalomnál)<br />
+			  Telefon/fax: +36 20 331 4113, +36 34 748 068<br /> 
+			  alombutorhaztatabanya@gmail.com
+			  </span>
+		   </div>
+		   <div id="lablec_third">
+			  KÉSZÍTETTE:<br />
+			  <img src="graphics/3dea_1.png" alt="" />
+		   </div>
         </div>
     </div>
 </body>

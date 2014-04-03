@@ -3,6 +3,7 @@ body{
     padding: 0;
     background-color: #82756c;
     font-family: Verdana, Arial;
+	
 }
 
 #keret{
@@ -119,7 +120,7 @@ body{
    font-size: 18px;
    font-weight: normal;
    text-transform: uppercase;
-   padding: 16px 12px 16px 12px;
+   padding: 16px 9px 16px 9px;
    margin: 0px;
 }
 
@@ -130,6 +131,15 @@ body{
 
 .cimlap_csempe_extra div{
    height: 236px;
+}
+
+.cimlap_csempe p{
+   float: left;
+   width: 60px;
+}
+
+.cimlap_csempe img{
+   margin-right: 20px;
 }
 
 .cimlap_csempe a, .cimlap_csempe_extra a{
@@ -163,11 +173,59 @@ body{
    background-color: #e1623a;
 }
 
+.cimlap_csempe_kep{
+   width: 150px;
+   float: left;
+}
+
+.cimlap_csempe_kep img{
+   float: left;
+}
+   
+.cimlap_csempe_szoveg{
+   padding: 14px 10px 10px 10px;
+   color: #35312e;
+   font-size: 12px;
+   height: 158px !important;
+   text-align: center;
+}
+
 #lablec{
     background-color: #35312e;
     height: 110px;
     width: 100%;
     float: left;
+	color: #f6eeeb;
+}
+
+#lablec_first{
+   margin: 18px 30px 15px 15px;
+   float: left;
+   width: 285px;
+}
+
+#lablec_second{
+   margin: 18px 30px 15px 0px;
+   float: left;
+   width: 300px;
+}
+
+#lablec_third{
+   margin: 18px 0px 15px 0px;
+   float: left;
+   width: 300px;
+}
+
+#lablec span{
+   float: left;
+   margin-top: 6px;
+   font-size: 10px;
+}
+
+#lablec_third img{
+   display: block;
+   margin: -34px 0px 0px 130px;
+   float: left;
 }
 
 .termek_lista{
