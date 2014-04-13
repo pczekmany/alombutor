@@ -12,7 +12,6 @@ class data_connect{ //ez egy osztály, csak terv
 		else {
 			$kapcsolat = mysql_connect("localhost", DOMAIN_DB_USER, DOMAIN_DB_PASSWORD);
 			$adatbazis = mysql_select_db(DOMAIN_DB_NAME);
-                        echo 'x'. mysql_error();
 		}
 
 		if (!$kapcsolat) { die('Hiba a MySQL szerverhez kapcsolódás közben: ' . mysql_error());}

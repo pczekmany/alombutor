@@ -1,5 +1,5 @@
 <?php
-$result = mysql_query("SELECT nev, csoport, szin, anyag, ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE sorszam = $_REQUEST[id]");
+$result = mysql_query("SELECT nev, csoport, szin, leiras, ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE sorszam = $_REQUEST[id]");
 $a = mysql_fetch_row($result);
 $nev = $a[0];
 $szin = $a[2];
@@ -31,7 +31,7 @@ $tartalom = '<div id="tartalom_h">
 
 <table class="termek_tablazat">
     <tr><td>ÁR:</td><td>'.$ar.'</td></tr>
-    <tr><td>Anyag:</td><td>'.$anyag.'</td></tr>
+    <tr><td>Leírás:</td><td>'.$anyag.'</td></tr>
     <tr><td>Elérhető színek:</td><td>'.$szin.'</td></tr>
     <tr><td>Elemek:</td><td>'.$elem.'</td></tr>
 </table>
