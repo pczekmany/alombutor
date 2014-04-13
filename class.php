@@ -1,5 +1,34 @@
 <?php
 
+
+class data_connect{ //ez egy osztály, csak terv
+	public $domain;    
+
+	function connect(){
+		$domain = $_SERVER['HTTP_HOST'];
+		if ($domain == 'localhost'){
+			$kapcsolat = mysql_connect("localhost", LOCALHOST_DB_USER, LOCALHOST_DB_PASSWORD);
+			$adatbazis = mysql_select_db(LOCALHOST_DB_NAME);}
+		else {
+			$kapcsolat = mysql_connect("localhost", DOMAIN_DB_USER, DOMAIN_DB_PASSWORD);
+			$adatbazis = mysql_select_db(DOMAIN_DB_NAME);
+                        echo 'x'. mysql_error();
+		}
+
+		if (!$kapcsolat) { die('Hiba a MySQL szerverhez kapcsolódás közben: ' . mysql_error());}
+
+		$ekezet = mysql_set_charset("utf8",$kapcsolat);
+
+		if ($_REQUEST[db_save]){
+			backup_tables();
+		 }
+
+		 if ($_REQUEST[db_load]){
+			sql_import("db-backup.sql");
+		 }
+	}
+}
+
 /**
  * Sablonkezelő
  * 
