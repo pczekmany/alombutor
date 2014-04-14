@@ -74,7 +74,8 @@ body{
 }
 
 #balmenu a:hover{
-   background-color: #bdb8b0;
+   /*background-color: #bdb8b0;*/
+   color: #42aee2;
 }
 
 #tartalom{

@@ -34,7 +34,7 @@ class data_connect{ //ez egy osztály, csak terv
  */
 
 class html_blokk{
-	
+	public $html_code;
 	/** Sablon állomány és sablon adatok összeillesztése
 	 * 
 	 * @param string $fajlnev A sablon fájl neve
@@ -52,6 +52,7 @@ class html_blokk{
 	 
 			eval("\$tartalom = \"" . addslashes($tartalom) . "\";");
 	 
+			$this->html_code = $tartalom;
 			return $tartalom . "\n";
 		}
  
@@ -154,4 +155,138 @@ class email{
 	 }
    }
    
+}
+
+
+class user{
+	public $sorszam;
+	public $nev;
+	public $jog;
+	public $email;
+	public $csoport;
+	public $belephiba;
+	public $html_code;
+
+	function login(){
+		$jel = mysql_real_escape_string($_REQUEST['jelszo']);
+		$azon = mysql_real_escape_string($_REQUEST['azonosito']);
+		if (!$_REQUEST['azonosito']){$azon = $_SESSION["sessfelhasznaloazonosito"];}
+		$jel = md5($jel);
+
+		If ($_REQUEST['logout'] == 1) {
+			unset($_SESSION["sessfelhasznalo"]);
+			unset($_SESSION["sessfelhasznalosorszam"]);
+			unset($_SESSION["sessfelhasznaloazonosito"]);
+			unset($_SESSION["sessfelhasznalojog"]);
+		}
+
+		If ($_REQUEST['azonosito'] != "") {
+			$result = mysql_query("SELECT sorszam, azonosito, jog, email FROM ".$_SESSION[adatbazis_etag]."_regisztralt WHERE azonosito = '$azon' AND jelszo = '$jel'");	
+			$s = mysql_fetch_row($result);
+			$mostlep == 1;
+		} else {
+		   if ($_SESSION[sessfelhasznalosorszam]){
+			$result = mysql_query("SELECT sorszam, azonosito, jog, email FROM ".$_SESSION[adatbazis_etag]."_regisztralt WHERE sorszam = '$_SESSION[sessfelhasznalosorszam]'");	
+			$s = mysql_fetch_row($result);
+		   }
+		}
+			if ($s[2] != ""){
+				$this->sorszam = $s[0];
+				$this->nev = $s[1];
+				$this->jog = $s[2];
+				$this->email = $s[3];
+				$_SESSION["sessfelhasznalo"] = $s[1];
+				$_SESSION["sessfelhasznalosorszam"] = $s[0];
+				$_SESSION["sessfelhasznaloazonosito"] = $s[1];
+				$_SESSION["sessfelhasznalojog"] = $s[2];
+				$_SESSION["sessfelhasznaloemail"] = $s[3];
+				if ($mostlep){
+				  $loging_db = new log_db;
+				  $loging_db->write($_SESSION["sessfelhasznalosorszam"], 'Bejelentkezés');
+				}
+			} else {
+               If ($_REQUEST['azonosito'] != "") {
+				$_SESSION[messagetodiv] = '<p>Figyelem!</p><ul><li>Rossz felhasználónév, vagy jelszó!</li></ul>';
+               }
+			}
+
+	}
+}
+
+class navsav{
+	//egy lista navigációs sávjának elkészítése (várt adat az sql, melyik lapon vagyunk)
+	public $tol;
+	public $ig;
+	public $lap;
+	public $termekdb;
+	public $lapszamsor;
+	
+	function create_navsav($sql_query, $lap, $db_peroldal, $xkategoriaszures, $adminpublic){
+		$result = mysql_query($sql_query);
+		$this->termekdb = mysql_num_rows($result);
+		
+		If (($lap == "") OR ($lap == 1)) {
+			$this->tol = 0;
+			$this->ig = $db_peroldal;}
+		else {
+			$this->tol = $db_peroldal * ($lap-1);
+			$this->ig = $db_peroldal;
+		}
+		
+		$olddb = 0;
+		$oldelemdb = 0;
+		#10 számos oldalszámblokk elemei
+		if ($lap != ""){
+			$kapott_oldal = $lap;}
+		else {
+			$kapott_oldal = 1;
+		}
+			
+		$kapott_oldal_m = $kapott_oldal;
+		$kapott_oldal_p = $kapott_oldal;
+
+		for ($i = 0; 10>$i; $i++){
+			If (($kapott_oldal_m %10 == 0) OR ($kapott_oldal_m == 1)) {
+				if ($min_oldal == ""){
+					$min_oldal = $kapott_oldal_m;
+				}
+			}
+			If ($kapott_oldal_p %10 == 0) {
+				if ($max_oldal == ""){
+				$max_oldal = $kapott_oldal_p;
+				}
+			}
+			$kapott_oldal_m--;
+			$kapott_oldal_p++;
+		}
+		
+		if (($adminpublic == 'public') OR ($adminpublic == '')) {$cel = 'index.php?lap=';}
+		if ($adminpublic == 'admin') {$cel = 'admin.php?tartalom=termeklist&amp;lap=';}
+		
+		If ($this->termekdb > $db_peroldal){
+			$olddb = ($min_oldal-1);
+			for ($i = ($min_oldal-1); $i <= $this->termekdb; $i++){
+				If (($i %$db_peroldal == 0) OR ($i == 0)) {
+					$olddb++;
+					$oldelemdb++;
+					$oldvalt = "oldalszam";
+					If ($olddb == $lap){$oldvalt = "oldalszamv";}
+					If (($lap == "") AND ($i == 0)) {$oldvalt = "oldalszamv";}
+					if ($xkategoriaszures != "") {$kategoriaszuresxx = '&amp;kategoriaszures='.$xkategoriaszures;}
+					$this->lapszamsor .= '<a class="'.$oldvalt.'" href="'.$cel.$olddb.$kategoriaszuresxx.'"> '.$olddb.'</a>';}
+					if ($oldelemdb == 10) {break;}
+					if ($olddb == round($this->termekdb/$db_peroldal,0)+1){break;}
+				}
+		}
+		
+		if ($this->lapszamsor != ""){
+			$elozooldal = $kapott_oldal-1;
+			$kovetkezooldal = $kapott_oldal+1;
+			if ($elozooldal < 1) {$elozooldal = 1;}
+			if ($kovetkezooldal > round($this->termekdb/$db_peroldal,0)){ $kovetkezooldal = (round($this->termekdb/$db_peroldal,0)+1);}
+			if ($_REQUEST[kategoriaszures] != "") {$kategoriaszuresxx = '&amp;kategoriaszures='.$_REQUEST[kategoriaszures];}
+			$this->lapszamsor = '<a href="'.$cel.'1'.$kategoriaszuresxx.'" class="oldalszam" title="első">&#60;&#60; </a> <a href="'.$cel.$elozooldal.$kategoriaszuresxx.'" class="oldalszam" title="előző" style="margin-right: 10px;"> &#60; </a>' . $this->lapszamsor . '<a href="'.$cel.$kovetkezooldal.$kategoriaszuresxx.'" class="oldalszam" style="margin-left: 10px;" title="következő"> &#62;</a> <a href="'.$cel.(round($this->termekdb/12,0)+1).$kategoriaszuresxx.'" class="oldalszam" title="utolsó"> &#62;&#62;</a>';
+		}
+		
+	}
 }

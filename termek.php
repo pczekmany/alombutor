@@ -3,7 +3,7 @@ $result = mysql_query("SELECT nev, csoport, szin, leiras, ar FROM ".$_SESSION[ad
 $a = mysql_fetch_row($result);
 $nev = $a[0];
 $szin = $a[2];
-$anyag = $a[3];
+$leiras = nl2br($a[3]);
 $ar = $a[4];
 
 $ar = number_format($ar, 0, ',', '.'). ' Ft';
@@ -31,9 +31,12 @@ $tartalom = '<div id="tartalom_h">
 
 <table class="termek_tablazat">
     <tr><td>ÁR:</td><td>'.$ar.'</td></tr>
-    <tr><td>Leírás:</td><td>'.$anyag.'</td></tr>
     <tr><td>Elérhető színek:</td><td>'.$szin.'</td></tr>
     <tr><td>Elemek:</td><td>'.$elem.'</td></tr>
 </table>
-'.$galeria.'
+<p>
+   <strong>Leírás:</strong><br />
+   '.$leiras.'
+</p>
+   '.$galeria.'
 </div>';
