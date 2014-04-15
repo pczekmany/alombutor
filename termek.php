@@ -2,6 +2,7 @@
 $result = mysql_query("SELECT nev, csoport, szin, leiras, ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE sorszam = $_REQUEST[id]");
 $a = mysql_fetch_row($result);
 $nev = $a[0];
+$csoport = $a[1];
 $szin = $a[2];
 $leiras = nl2br($a[3]);
 $ar = $a[4];
@@ -26,17 +27,23 @@ while ($next_element = mysql_fetch_array($result)){
     ';
 }
 
-$tartalom = '<div id="tartalom_h">
-<h1>'.$nev.'</h1>
+if ($szin){$szin = '<tr><td>Elérhető színek:</td><td>'.$szin.'</td></tr>';}
+if ($elem){$elem = '<tr><td>Elemek:</td><td>'.$elem.'</td></tr>';}
 
-<table class="termek_tablazat">
-    <tr><td>ÁR:</td><td>'.$ar.'</td></tr>
-    <tr><td>Elérhető színek:</td><td>'.$szin.'</td></tr>
-    <tr><td>Elemek:</td><td>'.$elem.'</td></tr>
-</table>
-<p>
-   <strong>Leírás:</strong><br />
-   '.$leiras.'
-</p>
-   '.$galeria.'
+$tartalom = '
+<div id="tartalom_h">
+   <h1>'.$nev.'</h1>
+   <table class="termek_tablazat">
+	   <tr><td>ÁR:</td><td>'.$ar.'</td></tr>
+	   '.$szin.'
+	   '.$elem.'
+   </table>
+   <p class="leiras">
+	  <span>Leírás:</span>
+	  '.$leiras.'
+   </p>
+   <div class="galeria">
+	  '.$galeria.'
+   </div>
+   <a href="?menu=csoport&id='.$csoport.'" class="vissza">vissza</a>
 </div>';

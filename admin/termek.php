@@ -38,21 +38,21 @@ If ($_REQUEST[fokep] != ''){
 }
 
 If ($_REQUEST[ujkepment] == '1'){
-	if ($_REQUEST['f5'] == $_SESSION["f5vv"]){
+	
 	#képfile feltöltése
-	$result = mysql_query("SELECT MAX(sorszam) FROM ".$_SESSION[adatbazis_etag]."_elemkepek");
+	$result = mysql_query("SELECT MAX(sorszam) FROM ".$_SESSION[adatbazis_etag]."_galeriakepek");
 	$row = mysql_fetch_array($result); 
 	$num_rows=$row[0];
 	$num_rows++;
 	
 	$fajlnev_n = $num_rows . $_SESSION["f5"] .'.jpg';
-	$konyvtar = 'elemkepek/';
+	$konyvtar = 'termekkepek/';
 	foreach($_FILES as $allomanynev => $all_tomb) {
 		move_uploaded_file($all_tomb['tmp_name'], "$konyvtar/$fajlnev_n");
 		If ($all_tomb['tmp_name'] == "") {
 			$nincsfajl=1;
 		}
-		$filenev = "elemkepek/".$all_tomb['name'];
+		$filenev = "termekkepek/".$all_tomb['name'];
 		$filename = $all_tomb['name'];
 		settype ($filenev, 'string');
 		$uzenet = $all_tomb['tmp_name'];
@@ -60,10 +60,10 @@ If ($_REQUEST[ujkepment] == '1'){
 	
 	#a kép adatainak rögzítése az adatbázisba
 	If ($nincsfajl != 1) {
-		$sql2 = "INSERT INTO ".$_SESSION[adatbazis_etag]."_elemkepek (sorszam, elemsorszam, filenev) values ('$num_rows', '$_REQUEST[termek]', '$fajlnev_n')";
+		$sql2 = "INSERT INTO ".$_SESSION[adatbazis_etag]."_galeriakepek (id, sorszam, fajlnev_nagy) values ('$num_rows', '$_REQUEST[termek]', '$fajlnev_n')";
 		mysql_query($sql2);
 	}	
-	}
+	
 	$fotolap_be = '<script type="text/javascript">divdisp_on(\'admin_termekfotok\');</script>'.$uzenet;
 }
 
@@ -87,7 +87,6 @@ If ($_REQUEST[ment] == '1'){
 					akcios='$termek_akciosx'
 					WHERE sorszam='$_REQUEST[termek]'";
 		mysql_query($result_termek);
-		echo mysql_error();
 		
 		if ($_REQUEST[termek_azonosito] == ''){
 			$ujkategoriax = $ujelemsorszam;}
@@ -121,7 +120,7 @@ If ($_REQUEST[ment] == '1'){
 
 #kép törlés
 	If ($_REQUEST['keptorles'] != ""){
-		$sql = "DELETE FROM ".$_SESSION[adatbazis_etag]."_elemkepek WHERE sorszam = $_REQUEST[keptorles]";
+		$sql = "DELETE FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $_REQUEST[keptorles]";
 		mysql_query($sql);
 		$fotolap_be = '<script type="text/javascript">divdisp_on(\'admin_termekfotok\');</script>';
 	}
@@ -151,7 +150,22 @@ else {
 	  if ($termek_akcios == '1'){ $termek_akcios = 'checked="checked"';}
 	  if ($termek_aktiv == '1'){ $termek_aktiv = 'checked="checked"';}
 
-	
+	  //termékfotók
+	$kepszam = 0;
+	$resultx = mysql_query("SELECT sorszam, fajlnev_nagy, felirat_hu FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $_REQUEST[termek]");
+	while ($next_elementx = mysql_fetch_array($resultx)){
+	  
+		  $kepszam++;
+		  if ($ujtermek->kepfo[$kepszam-1] == 0){$fokepx = '';}
+		  else { $fokepx = 'checked="checked"';}
+		  $termekfotok .= '
+			  <div style="float: left; margin: 10px;">
+				  <img src="termekkepek/'.$next_elementx[fajlnev_nagy].'" width="120" alt="kép" /><br />
+				  főkép <input name="fokepx" type="checkbox" '.$fokepx.' onclick="megerosites_x('.$next_elementx[id].', \'termek_fokep\', '.$next_elementx[sorszam].')" />
+				  <img src="graphics/icon_del.png" title="kép törlése" border="0" width="23" style="margin: 5 0 0 20;" onclick="megerosites_x('.$next_elementx[id].', \'termek_kep\', '.$next_elementx[sorszam].')" alt="kép törlése" />
+			  </div>';
+	  
+	}
 }
 
 $result = mysql_query("SELECT sorszam, felirat_hu FROM ".$_SESSION[adatbazis_etag]."_galeriacsop ORDER BY felirat_hu");

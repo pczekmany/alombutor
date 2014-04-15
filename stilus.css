@@ -3,7 +3,7 @@ body{
     padding: 0;
     background-color: #82756c;
     font-family: Verdana, Arial;
-    color: #222;
+    color: #35312e;
 }
 
 #keret{
@@ -14,7 +14,7 @@ body{
 #fejlec{
     width: 100%;
     height: 96px;
-    background-color: #1d1c1a;
+    background-color: #35312e;
     margin-bottom: 30px;
 }
 
@@ -117,7 +117,7 @@ body{
    
 .cimlap_csempe h2, .cimlap_csempe_extra h2{
    background-color: #f8f3f0;
-   color: #333534;
+   color: #35312e;
    font-size: 18px;
    font-weight: normal;
    text-transform: uppercase;
@@ -137,6 +137,7 @@ body{
 .cimlap_csempe p{
    float: left;
    width: 60px;
+   color: #35312e;
 }
 
 .cimlap_csempe img{
@@ -244,11 +245,19 @@ body{
 .termek_lista img{
     width: 80%;
     border: 1px solid #667;
+	display: inline-block;
+	vertical-align: middle;
+    line-height: normal; 
 }
 
 .termek_lista h2{
     font-size: 18px;
     font-weight: normal;
+}
+
+.termek_lista div{
+   height: 162px;
+   line-height: 162px;
 }
 
 .controlleft {
@@ -288,4 +297,27 @@ body{
 .termek_tablazat td:nth-child(1){
     font-weight: bold;
     width: 150px;
+}
+
+.vissza {
+   display: block;
+   clear: both;
+   float: right;
+   margin: 10px 0px 0px 0px;
+   color: #333;
+   text-decoration: none;
+}
+
+.vissza:hover {
+   text-decoration: underline;
+}
+
+.leiras {
+   margin: 0px 6px 20px 6px;
+}
+
+.leiras span{
+   font-weight: bold;
+   display: block;
+   margin-bottom: 7px;
 }

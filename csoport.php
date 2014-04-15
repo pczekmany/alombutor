@@ -8,12 +8,14 @@ while ($next_element = mysql_fetch_array($result)){
     $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam]");
     $a = mysql_fetch_row($result2);
     $kep = $a[0];
+	
+	$ar = number_format($next_element[ar], 0, ',', '.'). ' Ft';
     
     $lista .= '
     <a href="?menu=termek&id='.$next_element[sorszam].'" class="termek_lista">
         <h2>'.$next_element[nev].'</h2>
-        <img src="termekkepek/'.$kep.'" alt="" />
-        <p>'.$next_element[ar].'-tól</p>
+        <div><img src="termekkepek/'.$kep.'" alt="" /></div>
+        <p>'.$ar.'-tól</p>
     </a>';
 }
 
