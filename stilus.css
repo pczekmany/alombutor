@@ -4,6 +4,7 @@ body{
     background-color: #82756c;
     font-family: Verdana, Arial;
     color: #35312e;
+	overflow-y: scroll;
 }
 
 #keret{

@@ -30,24 +30,24 @@ If ($_REQUEST[ujmentes] == '1'){
 
 If ($_REQUEST[fokep] != ''){
 	#főkép átállítása
-	$result_kepek = "UPDATE ".$_SESSION[adatbazis_etag]."_elemkepek SET fokep='0' WHERE elemsorszam='$_REQUEST[termek]'"; 
+	$result_kepek = "UPDATE ".$_SESSION[adatbazis_etag]."_galeriakepek SET kepszam='0' WHERE sorszam='$_REQUEST[termek]'"; 
 	mysql_query($result_kepek);
-	$result_kepek = "UPDATE ".$_SESSION[adatbazis_etag]."_elemkepek SET fokep='1' WHERE sorszam='$_REQUEST[fokep]'"; 
+	$result_kepek = "UPDATE ".$_SESSION[adatbazis_etag]."_galeriakepek SET kepszam='10' WHERE id='$_REQUEST[fokep]'"; 
 	mysql_query($result_kepek);
 	$fotolap_be = '<script>divdisp_on(\'admin_termekfotok\');</script>';
 }
 
 If ($_REQUEST[ujkepment] == '1'){
-	
+	if ($_REQUEST[termek]){
 	#képfile feltöltése
 	$result = mysql_query("SELECT MAX(sorszam) FROM ".$_SESSION[adatbazis_etag]."_galeriakepek");
 	$row = mysql_fetch_array($result); 
 	$num_rows=$row[0];
 	$num_rows++;
 	
-	$fajlnev_n = $num_rows . $_SESSION["f5"] .'.jpg';
 	$konyvtar = 'termekkepek/';
 	foreach($_FILES as $allomanynev => $all_tomb) {
+	   $fajlnev_n = $all_tomb['name'].'_'.$num_rows .'.jpg';
 		move_uploaded_file($all_tomb['tmp_name'], "$konyvtar/$fajlnev_n");
 		If ($all_tomb['tmp_name'] == "") {
 			$nincsfajl=1;
@@ -60,11 +60,12 @@ If ($_REQUEST[ujkepment] == '1'){
 	
 	#a kép adatainak rögzítése az adatbázisba
 	If ($nincsfajl != 1) {
-		$sql2 = "INSERT INTO ".$_SESSION[adatbazis_etag]."_galeriakepek (id, sorszam, fajlnev_nagy) values ('$num_rows', '$_REQUEST[termek]', '$fajlnev_n')";
+		$sql2 = "INSERT INTO ".$_SESSION[adatbazis_etag]."_galeriakepek (sorszam, fajlnev_nagy) values ('$_REQUEST[termek]', '$fajlnev_n')";
 		mysql_query($sql2);
 	}	
 	
 	$fotolap_be = '<script type="text/javascript">divdisp_on(\'admin_termekfotok\');</script>'.$uzenet;
+	}
 }
 
 #termék adatainak módosítása
@@ -120,7 +121,7 @@ If ($_REQUEST[ment] == '1'){
 
 #kép törlés
 	If ($_REQUEST['keptorles'] != ""){
-		$sql = "DELETE FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $_REQUEST[keptorles]";
+		$sql = "DELETE FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE id = $_REQUEST[keptorles]";
 		mysql_query($sql);
 		$fotolap_be = '<script type="text/javascript">divdisp_on(\'admin_termekfotok\');</script>';
 	}
@@ -152,12 +153,13 @@ else {
 
 	  //termékfotók
 	$kepszam = 0;
-	$resultx = mysql_query("SELECT sorszam, fajlnev_nagy, felirat_hu FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $_REQUEST[termek]");
+	$resultx = mysql_query("SELECT sorszam, fajlnev_nagy, felirat_hu, kepszam, id FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $_REQUEST[termek]");
 	while ($next_elementx = mysql_fetch_array($resultx)){
 	  
 		  $kepszam++;
-		  if ($ujtermek->kepfo[$kepszam-1] == 0){$fokepx = '';}
-		  else { $fokepx = 'checked="checked"';}
+		  if ($next_elementx[kepszam] == 10){
+			 $fokepx = 'checked="checked"';}
+		  else {fokepx == '';}
 		  $termekfotok .= '
 			  <div style="float: left; margin: 10px;">
 				  <img src="termekkepek/'.$next_elementx[fajlnev_nagy].'" width="120" alt="kép" /><br />
@@ -241,7 +243,7 @@ $admin_torzs = '
 </form>
 
 <div id="kepfeltolt" style="display: none;">
-	<form action="admin.php?tartalom=termek&amp;termek='.$termek_sorszam.'&amp;ujkepment=1" enctype="multipart/form-data" method="post" class="admin_form">
+	<form action="admin.php?tartalom=termek&amp;termek='.$_REQUEST[termek].'&amp;ujkepment=1" enctype="multipart/form-data" method="post" class="admin_form">
 		<div class="a_form_beldiv">
 		Új kép feltöltése:<br style="clear:both;" />
 		<input name="file" type="file" size="30" accept="image/*" maxlength="150" /><br style="clear:both;" />

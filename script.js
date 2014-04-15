@@ -94,3 +94,13 @@ function divdisp_off(id){
 	document.getElementById(id).style.display = 'none';
 	}
 	
+function megerosites_x(torolszam, formnev, termek) {
+	if (formnev == "termek_kep") {
+		var answer = confirm ("Ön a KÉP TÖRLÉSÉT választotta.\n Biztosan törölni szeretné?");
+		if (answer) { window.location="admin.php?tartalom=termek&termek="+termek+"&keptorles="+torolszam;}
+	}
+	if (formnev == "termek_fokep") {
+		var answer = confirm ("Ön a FŐKÉP ÁTÁLLÍTÁSÁT választotta.\n Biztosan szeretné?");
+		if (answer) { window.location="admin.php?tartalom=termek&termek="+termek+"&fokep="+torolszam;}
+	}
+}
