@@ -161,8 +161,29 @@ body{
 
 .cimlap_csempe_extra a{
    background-color: #2ac1ba;
+   text-transform: uppercase;
 }
 
+.extra_gomb{
+   display: block;
+   width: 277px;
+   text-align: left;
+   color: #f6eeeb;
+   margin-bottom: 10px;
+   background-color: #2ac1ba;
+   font-size: 16px;
+   text-decoration: none;
+   padding: 18px 12px 18px 12px !important;
+   background-image: url('graphics/next.png');
+   background-position: 248px 8px;
+   background-repeat: no-repeat;
+   text-transform: uppercase;
+}
+
+.extra_gomb:hover{
+    color: #f6eeeb !important;
+}
+    
 .cimlap_csempe_extra img{
    height: 236px;
    width: 300px;
@@ -321,4 +342,19 @@ body{
    font-weight: bold;
    display: block;
    margin-bottom: 7px;
+}
+
+.nyitva_kep{
+    display: block !important;
+    width: 180px;
+    height: 152px;
+    padding: 0px;
+    background-color: #fefefe !important;
+    background-image: url('graphics/nyitva_kep.jpg') !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+}
+
+.nyitva_kep:hover{
+    background-image: url('graphics/nyitva_kep2.jpg') !important;
 }

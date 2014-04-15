@@ -15,6 +15,7 @@ require_once('tartalomvalasztas.php');
 $array = array('tartalom' => $tartalom,
 		'alcim' => $alcim,
                 'menulista' => $menulista,
+                'extra_gombok' => $extra_gombok,
 		'admin_konyvtar' => $admin_konyvtar);
 	 
 $index_html = new html_blokk;
