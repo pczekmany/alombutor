@@ -201,7 +201,10 @@ body{
    width: 150px;
    float: left;
 }
-
+.cimlap_csempe_kep2{
+   width: 300px;
+   float: center;
+}
 .cimlap_csempe_kep img{
    float: left;
 }
@@ -213,7 +216,13 @@ body{
    height: 158px !important;
    text-align: center;
 }
-
+.cimlap_csempe_szoveg2{
+   padding: 14px 10px 10px 10px;
+   color: #35312e;
+   font-size: 13px;
+   height: 158px !important;
+   text-align: left;
+}
 #lablec{
     background-color: #35312e;
     height: 110px;
@@ -267,8 +276,8 @@ body{
 .termek_lista img{
     width: 80%;
     border: 1px solid #667;
-	display: inline-block;
-	vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
     line-height: normal; 
 }
 
