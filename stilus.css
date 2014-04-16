@@ -201,14 +201,21 @@ body{
    width: 150px;
    float: left;
 }
-.cimlap_csempe_kep2{
-   width: 300px;
-   float: center;
-}
+
 .cimlap_csempe_kep img{
    float: left;
 }
+.cimlap_csempe_kep2{
+   width: 300px;
+   float: top;
    
+}
+ .cimlap_csempe_kep2 a {
+   width: 300px;
+   height: 182px;
+   padding: 0;
+   
+ }
 .cimlap_csempe_szoveg{
    padding: 14px 10px 10px 10px;
    color: #35312e;
