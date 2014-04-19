@@ -72,11 +72,15 @@ body{
     text-decoration: none;
 	border-top: 1px solid #b2afaa;
 	padding: 2px 8px 2px 8px;
+	background-image: url('graphics/icon_menu.png');
+	background-repeat: no-repeat;
+	background-position: 278px 3px;
 }
 
 #balmenu a:hover{
    /*background-color: #bdb8b0;*/
    color: #42aee2;
+   background-image: url('graphics/icon_menu_h.png');
 }
 
 #tartalom{

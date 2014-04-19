@@ -44,16 +44,24 @@ CREATE TABLE `alombutor_galeriakepek` (
   `csoport` varchar(50) COLLATE latin2_hungarian_ci DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `hirdetes_sorszam` (`kepszam`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin2 COLLATE=latin2_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin2 COLLATE=latin2_hungarian_ci;
 
-INSERT INTO alombutor_galeriakepek VALUES("1","1","reka_sarok.jpg","","Réka sarok konyha","");
+INSERT INTO alombutor_galeriakepek VALUES("1","1","reka_sarok.jpg","0","Réka sarok konyha","");
 INSERT INTO alombutor_galeriakepek VALUES("2","2","trinity_kanape.jpg","0","Trinity","");
-INSERT INTO alombutor_galeriakepek VALUES("3","3","xena_kanape.jpg","","Xéna kanapé","");
-INSERT INTO alombutor_galeriakepek VALUES("4","4","hermina_kanape.jpg
-","","Hermina kanapé","7");
-INSERT INTO alombutor_galeriakepek VALUES("5","5","blokk_adam.jpg","","Ádám konyha","");
-INSERT INTO alombutor_galeriakepek VALUES("6","6","blokk_velence.jpg","","Velence konyha blokk, Antikolt MDF, 200/72cm-es, munkalappal","");
-INSERT INTO alombutor_galeriakepek VALUES("7","6","konyha_velence.jpg","","Velence konyha egyedi  sarok verzió ","");
+INSERT INTO alombutor_galeriakepek VALUES("3","3","xena_kanape.jpg","0","Xéna kanapé","");
+INSERT INTO alombutor_galeriakepek VALUES("4","4","hermina_kanape.jpg
+","0","Hermina kanapé","7");
+INSERT INTO alombutor_galeriakepek VALUES("5","5","blokk_adam.jpg","0","Ádám konyha","");
+INSERT INTO alombutor_galeriakepek VALUES("6","6","blokk_velence.jpg","0","Velence konyha blokk, Antikolt MDF, 200/72cm-es, munkalappal","");
+INSERT INTO alombutor_galeriakepek VALUES("7","6","konyha_velence.jpg","0","Velence konyha egyedi  sarok verzió ","");
+INSERT INTO alombutor_galeriakepek VALUES("8","7","_blokk_porto.jpg_7.jpg","","","");
+INSERT INTO alombutor_galeriakepek VALUES("9","7","_konyha_porto.jpg_8.jpg","","","");
+INSERT INTO alombutor_galeriakepek VALUES("10","8","_blokk_genf.jpg_8.jpg","","","");
+INSERT INTO alombutor_galeriakepek VALUES("11","8","genf_sarok.jpg_9.jpg","","","");
+INSERT INTO alombutor_galeriakepek VALUES("12","9","oslo_2_m.jpg_9.jpg","","","");
+INSERT INTO alombutor_galeriakepek VALUES("13","9","oslo_sarok.jpg_10.jpg","","","");
+INSERT INTO alombutor_galeriakepek VALUES("14","10","_blokk_rodosz.jpg_10.jpg","","","");
+INSERT INTO alombutor_galeriakepek VALUES("15","11","boston.jpg_11.jpg","","","");
 
 
 
@@ -80,9 +88,9 @@ CREATE TABLE `alombutor_regisztralt` (
   PRIMARY KEY (`sorszam`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2 COLLATE=latin2_hungarian_ci;
 
-INSERT INTO alombutor_regisztralt VALUES("0","pczekmany","","0724739e4f7811dd09648d9b205c7d3d","pczekmany@gmail.com","","1","0","","","","","","","","","");
-INSERT INTO alombutor_regisztralt VALUES("1","bmbtamas","Bombicz Tamás","825389c33a252ee237134596cbc77a77","bombiczt@gmail.com","","1","0","","","","","","","","","");
-INSERT INTO alombutor_regisztralt VALUES("2","alombutor","Alombutor","5E7FBEF73C650794755C52000E254CEA","info@turulcafe.com","","1","0","2014-01-27 00:00:00","","","","","","","","");
+INSERT INTO alombutor_regisztralt VALUES("0","pczekmany","","0724739e4f7811dd09648d9b205c7d3d","pczekmany@gmail.com","","1","0","0000-00-00 00:00:00","0000-00-00 00:00:00","","","","","","","");
+INSERT INTO alombutor_regisztralt VALUES("1","bmbtamas","Bombicz Tamás","825389c33a252ee237134596cbc77a77","bombiczt@gmail.com","","1","0","0000-00-00 00:00:00","0000-00-00 00:00:00","","","","","","","");
+INSERT INTO alombutor_regisztralt VALUES("2","alombutor","Alombutor","5E7FBEF73C650794755C52000E254CEA","info@turulcafe.com","","1","0","2014-01-27 00:00:00","0000-00-00 00:00:00","","","","","","","");
 INSERT INTO alombutor_regisztralt VALUES("3","AdminZoli","Molnár Zoltán","e20ffabe4230eed6ba92c6ee9d9618e4","info@inkozrt.hu","1","1","0","0000-00-00 00:00:00","0000-00-00 00:00:00","","","","","","","");
 
 
@@ -103,14 +111,14 @@ CREATE TABLE `alombutor_termekek` (
   PRIMARY KEY (`sorszam`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
-INSERT INTO alombutor_termekek VALUES("1","Réka konyha","1","","Réka 200/72cm-es blokk, alu keretes, munkalappal, mosogatóval.
+INSERT INTO alombutor_termekek VALUES("1","Réka konyha","1","","Réka 200/72cm-es blokk, alu keretes, munkalappal, mosogatóval.
 A képen egyedi sarok verzióba látható.","","","113900","0","0");
 INSERT INTO alombutor_termekek VALUES("2","Trinity kanapé","7","","Trinity kanapé, ágyazható, ágneműtartós, szivacsos 218x88x84cm, fekvőfelület. 150x183cm, fekvőmagasság: 30cm. Választható szövettel, textilbőrrel, az ár, a választott szövetkategóriától függ.","","","59500","","");
 INSERT INTO alombutor_termekek VALUES("3","Xéna kanapé","7","","Xéna kanapé, kizárólag szivacsos változatban készül, 240x78x85cm, fekvőfelület:190x160cm, fekvőmagasság:30cm. Választható szövettel, textilbőrrel, az ár, a választott szövetkategóriától függ.","","","59900","1","0");
 INSERT INTO alombutor_termekek VALUES("4","Hermina kanapé","7","","Hermina kanapé, kizárólag szivacsos változatban készül, 213x78x85cm, fekvőfelület:190x160cm, fekvőmagasság:30cm. Választható szövettel, textilbőrreé, az ár, a választott szövetkategóriától függ.","","","57200","","");
-INSERT INTO alombutor_termekek VALUES("5","Ádám","1","","Ádám konyha blokk, MDF,  200/60cm-es, munkalappal, mosogatóval:
+INSERT INTO alombutor_termekek VALUES("5","Ádám","1","","Ádám konyha blokk, MDF,  200/60cm-es, munkalappal, mosogatóval:
 160/60cm-es: 73.200.-Ft","","","83000","","");
-INSERT INTO alombutor_termekek VALUES("6","Velence konyha","1","","Velence konyha blokk, Antikolt MDF, 200/72cm-es, munkalappal,mosogatóval:","","","121900","1","1");
+INSERT INTO alombutor_termekek VALUES("6","Velence konyha","1","","Velence konyha blokk, Antikolt MDF, 200/72cm-es, munkalappal,mosogatóval:","","","121900","","");
 INSERT INTO alombutor_termekek VALUES("7","Porto konyha blokk","1","","Antikolt, MDF, 200/72cm-es, mosogatóval, munkalappal","","","121900","1","0");
 INSERT INTO alombutor_termekek VALUES("8","Genf","1","","Genf konyha blokk, 3D lemarással, vákumfóliával borított MDF,  200/72cm-es, munkalappal, mosogatóval","","","99400","1","0");
 INSERT INTO alombutor_termekek VALUES("9","Oslo","1","","Oslo 220/72cm-es konyha blokk, munkalappal, mosogatóval","","","118000","1","0");
