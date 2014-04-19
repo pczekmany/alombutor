@@ -178,8 +178,8 @@ body{
    font-size: 16px;
    text-decoration: none;
    padding: 18px 12px 18px 12px !important;
-   background-image: url('graphics/next.png');
-   background-position: 248px 8px;
+   background-image: url('graphics/next.png') !important;
+   background-position: 248px 8px !important;
    background-repeat: no-repeat;
    text-transform: uppercase;
 }
