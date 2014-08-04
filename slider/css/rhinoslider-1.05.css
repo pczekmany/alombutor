@@ -1,0 +1,203 @@
+#x{
+   clear: both;
+   width: 630px;
+   height: 388px;
+}
+
+/**
+  * Rhinoslider 1.05
+  * http://rhinoslider.com/
+  *
+  * Copyright 2013: Sebastian Pontow, Rene Maas (http://renemaas.de/)
+  * Dual licensed under the MIT or GPL Version 2 licenses.
+  * http://rhinoslider.com/license/
+  */
+.rhino-btn {
+	background:url(../img/rhinoslider-sprite2.png) 0 0 no-repeat;
+	z-index:3;
+	width:56px;
+	height:53px;
+	display:block;
+	text-indent:-999%;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	user-select:none;
+}
+
+.rhino-prev, .rhino-next { bottom:-4px; }
+
+.rhino-prev {
+	left:16px;
+	top: 154px !important;
+	background-position:0px 0;
+	border-radius: 8px;
+	width: 90px;
+	height: 90px;
+}
+
+.rhino-next {
+	right:16px;
+	top: 154px !important;
+	background-position:-93px 0;
+	border-radius: 8px;
+	width: 90px;
+	height: 90px;
+}
+
+.rhino-prev:hover { background-position: 0px 0px; }
+
+.rhino-next:hover { background-position:-93px -0px; }
+
+.rhino-toggle {
+	top:-4px;
+	left:-6px;
+}
+
+.rhino-play { background-position:0 0; }
+
+.rhino-play:hover { background-position:0 -53px; }
+
+.rhino-pause { background-position:-56px 0; }
+
+.rhino-pause:hover { background-position:-56px -53px; }
+
+.rhino-container { position:relative; clear: both;}
+
+.rhino-caption {
+	position:absolute;
+	display:none;
+	left:0;
+	right:0;
+	top:0px;
+	width: 430px;
+	height: 120px;
+	color:#fff;
+	z-index: 10;
+	margin: 0px;
+	text-align:right;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	user-select:none;
+}
+
+.rhino-bullets {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin: 0 0 0 -50px;
+	z-index: 10;
+/*	background: #fff;*/
+	padding:0;
+}
+
+.rhino-bullets:before, .rhino-bullets:after {
+	position:absolute;
+	display:block;
+	left:-16px;
+	content:' ';
+	width:16px;
+	height:26px;
+}
+
+.rhino-bullets:after {
+	left:auto;
+	right:-16px;
+	background-position: -240px 0;
+}
+
+.rhino-bullets li {
+	float:left;
+	display:inline;
+	margin:0 2px;
+	
+}
+
+.rhino-bullets li a.rhino-bullet {
+	display: block;
+	width: 21px;
+	height: 17px;
+	cursor: pointer;
+/*	background: white;*/
+	font-size: 10px;
+	text-align: center;
+	padding: 6px 0 5px 0;
+	color: transparent;
+	text-decoration:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	user-select:none;
+	background:url(../img/rhinoslider-sprite2.png) -227px 39px;
+	
+}
+
+.rhino-bullets li a.rhino-bullet:hover, .rhino-bullets li a.rhino-bullet:focus {
+/*	color:#999;
+	background:#eee;*/
+}
+
+.rhino-bullets li a.rhino-bullet.rhino-active-bullet {
+	color: transparent;
+	background:url(../img/rhinoslider-sprite2.png) -227px -41px no-repeat;
+/*	background:#5cd4e8;*/
+}
+
+
+/*rhino slider */
+#slider_frame{
+   clear: both;
+   float: left;
+   width: 100% !important;
+   height: 388px !important;
+   padding: 1px 0px 1px 0px;
+   background-image: url('../../graphics/bg_slide_border.jpg');
+   background-position: center top;
+   background-repeat: repeat-y;
+   position: absolute;
+   z-index: 2;
+   overflow: hidden;
+   margin-top: 10px;
+}
+
+.slide{
+   height: 388px;
+}
+
+#slider {
+   position: relative;
+   z-index: -1;
+   width: 630px;
+   height: 388px;
+   margin: 0px auto 0px auto !important;
+   
+   background-image: url('../../graphics/bg_slide.jpg');
+   background-position: center top;
+   background-repeat: repeat-y;
+   background-color: #fff;
+	/*IE bugfix*/
+	padding: 0px;
+	float: left;
+}
+			
+#slider li { 
+	list-style:none; 
+	z-index: 1;}
+
+#slider img{
+   margin: 0px auto 0px auto;
+   width: 630px;
+}
+	
+.rhino-white{
+   position: relative;
+   //*background-image: url('../../graphics/bg_slider.png');*//
+   z-index: 20;
+   width: 630px;
+   height: 32px;
+   margin-left: 0px;
+   color: #fff;
+   padding: 4px 10px 4px 10px;
+   text-align: left;
+   font-size: 26px;
+}
+	
+/*rhino slider end*/

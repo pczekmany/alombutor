@@ -11,6 +11,8 @@ if ($menu){
    }
 }
 else {	
+   require_once('slider.php');
+   $array = array('slider' => $slider);
    $tartalom = $index_html->load_template_file("sablonok/cimlap.html", $array);
 }	
 

@@ -37,7 +37,7 @@ if ($_REQUEST[id] == 'akcios'){
         <a href="?menu=termek&id='.$next_element[sorszam].'" class="termek_lista">
             <h2>'.$next_element[nev].'</h2>
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
-            <p>'.$ar.'-tól</p>
+            <p>'.$ar.'</p>
         </a>';
     }
 }

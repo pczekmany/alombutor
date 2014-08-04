@@ -205,9 +205,11 @@ $admin_torzs = '
 			<!--<tr><td>Sorszám:</td><td>'.$termek_sorszam.'</td></tr>-->
 			<tr><td>Kategória:</td><td>'.$kategoria_combo.'</td></tr>
 			<tr><td>Megnevezés:</td><td><input name="termek_megnevezes" size="30" type="text" value="' . $termek_megnevezes . '" /></td></tr>
+			<!--
 			<tr><td>Szín:</td><td><input name="termek_szink" size="30" type="text" value="' . $termek_szin . '" /></td></tr>
 			<tr><td>Anyag:</td><td><input name="termek_anyag" size="30" type="text" value="' . $termek_anyag . '" /></td></tr>
 			<tr><td>Elem:</td><td><input name="termek_elem" size="30" type="text" value="' . $termek_elem . '" /></td></tr>
+			-->
 			<tr><td>Leírás:</td><td><textarea name="termek_leiras" rows="10" cols="40">' . $termek_leiras . '</textarea></td></tr>
 			<tr><td>Listaár:</td><td><input name="termek_listaar" size="30" type="text" value="' . $termek_ar . '" onkeyup="numerikusCheck(termek.termek_webar)" /></td></tr>
 			<tr><td>Akciós:</td><td><input name="termek_akcios" size="30" type="checkbox" '.$termek_akcios.' /></td></tr>
