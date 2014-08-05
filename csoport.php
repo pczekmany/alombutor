@@ -13,8 +13,8 @@ if ($_REQUEST[id] == 'akcios'){
 
         $lista .= '
         <a href="?menu=termek&id='.$next_element[sorszam].'" class="termek_lista">
-            <h2>'.$next_element[nev].'</h2>
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
+			<h2>'.$next_element[nev].'</h2>
             <p>'.$ar.'-tól</p>
         </a>';
     }
@@ -35,8 +35,9 @@ if ($_REQUEST[id] == 'akcios'){
 
         $lista .= '
         <a href="?menu=termek&id='.$next_element[sorszam].'" class="termek_lista">
-            <h2>'.$next_element[nev].'</h2>
+            
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
+			<h2>'.$next_element[nev].'</h2>
             <p>'.$ar.'</p>
         </a>';
     }

@@ -278,6 +278,7 @@ body{
     float: left;
     text-decoration: none;
     color: #333;
+	margin-top: 30px;
 }
 
 .termek_lista:hover{
@@ -285,16 +286,23 @@ body{
 }
 
 .termek_lista img{
-    width: 80%;
+    max-width: 80%;
     border: 1px solid #667;
     display: inline-block;
     vertical-align: middle;
     line-height: normal; 
+	max-height: 158px;
 }
 
 .termek_lista h2{
-    font-size: 18px;
+    font-size: 16px;
+	margin: 0px auto 0px auto;
     font-weight: normal;
+	height: 66px;
+}
+
+.termek_lista p{
+   margin: 3px auto 0px auto;
 }
 
 .termek_lista div{
