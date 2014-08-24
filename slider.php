@@ -1,41 +1,17 @@
 <?php
-$slider =
-			'<div id="x"><div id="slider_frame">	   
+   $directory = 'slider_kep';
+   $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+   foreach ($scanned_directory as $key => $value){
+		 $slides .= '<li>'
+				 . '<div class="slide">'
+				 . '<img src="/'.MAIN_DIRECTORY.'slider_kep/'.$value.'" alt="" />'
+				 . '</div>'
+				 . '</li>';
+   }
+
+$slider =	'<div id="x"><div id="slider_frame">	   
 			   <ul id="slider">
-			   <li>
-				  <div class="slide">
-				  <img src="slider/nagykep.jpg" alt="" id="slide1" />
-				  <div class="rhino-caption">
-					 <div class="rhino-white"></div>
-				  </div>
-				  </div>
-			   </li>
-			   <li>
-				  <div class="slide">
-				  <img src="slider/nagykep.jpg" alt="" />
-				  <div class="rhino-caption">
-					 <div class="rhino-white"></div>
-				  </div>
-				  </div>
-			   </li>
-			   <li>
-				  <div class="slide">
-				  <img src="slider/nagykep.jpg" alt="" id="slide1" />
-				  <div class="rhino-caption">
-					 <div class="rhino-white"></div>
-				  </div>
-				  </div>
-			   </li>
-			   <li>
-				  <div class="slide">
-				  <img src="slider/nagykep.jpg" alt="" />
-				  <div class="rhino-caption">
-					 <div class="rhino-white"></div>
-				  </div>
-				  </div>
-			   </li>
+			   '.$slides.'
 			   </ul>
 			   </div>
-			</div>
-			
-			';
+			</div>';

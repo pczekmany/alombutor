@@ -9,6 +9,11 @@
 	<meta http-equiv="Pragma" content="no-cache" /> 
 	<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
 	<script type="text/javascript" src="script.js"></script>
+	<link href="jtable/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+	<link href="jtable/scripts/jtable/themes/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="jtable/scripts/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="jtable/scripts/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="jtable/scripts/jtable/jquery.jtable.js"></script>
 	<link rel="StyleSheet" type="text/CSS" href="admin.css" />
 	<link rel="StyleSheet" type="text/CSS" href="my_content.css" />
 </head>

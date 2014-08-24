@@ -12,7 +12,23 @@ if ($menu){
 }
 else {	
    require_once('slider.php');
-   $array = array('slider' => $slider);
+   
+   $directory = 'designtermek_kep';
+   $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+   foreach ($scanned_directory as $key => $value){
+		 $designtermek_kep = '<img src="designtermek_kep/'.$value.'" alt="" />';
+   }
+   
+   $directory = 'akciostermek_kep';
+   $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+   foreach ($scanned_directory as $key => $value){
+		 $akciostermek_kep = '<img src="akciostermek_kep/'.$value.'" alt="" />';
+   }
+   
+   $array = array('slider' => $slider,
+	   'akciostermek_kep' => $akciostermek_kep,
+	   'designtermek_kep' => $designtermek_kep);
+   
    $tartalom = $index_html->load_template_file("sablonok/cimlap.html", $array);
 }	
 

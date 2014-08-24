@@ -1,3 +1,7 @@
+a, img {
+   border: 0px;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -5,6 +9,7 @@ body{
     font-family: Verdana, Arial;
     color: #35312e;
 	overflow-y: scroll;
+	background-image: url('graphics/webhatter2.jpg');
 }
 
 #keret{
@@ -14,8 +19,9 @@ body{
 
 #fejlec{
     width: 100%;
-    height: 96px;
-    background-color: #35312e;
+    height: 98px;
+    background-color: #FAD1E3;
+	background-image: url('graphics/fejlec2.jpg');
     margin-bottom: 30px;
 }
 
@@ -26,12 +32,16 @@ body{
 }
 
 #fejlec h3{
-    color: #c8bb99;
+    color: #817A72;
     float: right;
     width: 300px;
     text-align: right;
     margin: 22px 0px 5px 0px;
     font-size: 20px;
+}
+
+#fejlec h3:last-child{
+   margin-top: 4px;
 }
 
 #fejlec h4{
@@ -46,10 +56,10 @@ body{
 
 #logo{
     display: block;
-    width: 471px;
-    height: 96px;
+    width: 470px;
+    height: 95px;
     float: left;
-    background-image: url('graphics/alom_logo.jpg');
+    /*background-image: url('graphics/alom_logo.jpg');*/
 }
 
 #balmenu{
@@ -60,10 +70,11 @@ body{
 }
 
 #balmenu h1{
-    color: #42aee2;
+    color: #111;
     text-transform: uppercase;
     font-weight: normal;
 	margin: 16px 16px 16px 16px;
+	text-shadow: 1px 1px 5px rgba(213, 61, 140, 1);
 }
 
 #balmenu a{
@@ -154,7 +165,7 @@ body{
    width: 276px;
    text-align: left;
    color: #f6eeeb;
-   background-color: #ed6c44;
+   background-color: #ED439B;
    font-size: 16px;
    text-decoration: none;
    padding: 18px 12px 18px 12px;
@@ -198,7 +209,7 @@ body{
 }
    
 .cimlap_csempe a:hover{
-   background-color: #e1623a;
+   background-color: #d63e8c;
 }
 
 .cimlap_csempe_kep{

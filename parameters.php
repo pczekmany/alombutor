@@ -1,4 +1,6 @@
 <?php
+define("MAIN_DIRECTORY", "alombutor/");
+
 define("LOCALHOST_DB_NAME", "alombutor");
 define("LOCALHOST_DB_USER", "root");
 define("LOCALHOST_DB_PASSWORD", "");
