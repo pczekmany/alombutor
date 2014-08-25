@@ -78,7 +78,8 @@ body{
 }
 
 #balmenu a{
-    color: #fcfcfa;
+    /*color: #fcfcfa;*/
+    color: #000000;
     display: block;
     text-decoration: none;
 	border-top: 1px solid #b2afaa;
@@ -90,8 +91,9 @@ body{
 
 #balmenu a:hover{
    /*background-color: #bdb8b0;*/
-   color: #42aee2;
-   background-image: url('graphics/icon_menu_h.png');
+   /*color: #42aee2;*/
+   color: #d63e8c;
+   background-image: url('graphics/icon_menu_h2.png');
 }
 
 #tartalom{
@@ -175,7 +177,7 @@ body{
 }
 
 .cimlap_csempe_extra a{
-   background-color: #2ac1ba;
+   /*background-color: #2ac1ba;*/
    text-transform: uppercase;
 }
 
@@ -205,7 +207,8 @@ body{
 }
 
 .cimlap_csempe_extra a:hover{
-   background-color: #29b6af;
+   /*background-color: #29b6af;*/
+   background-color: #d63e8c;
 }
    
 .cimlap_csempe a:hover{
