@@ -9,6 +9,8 @@ If ($_REQUEST['termek_torles'] == "on") {
 If ($_REQUEST[ujmentes] == '1'){
 	if ($_REQUEST[termek_akcios] == "on") { $termek_akciosx = 1;}
 	else { $termek_akciosx = 0;}
+	if ($_REQUEST[termek_design] == "on") { $termek_designx = 1;}
+	else { $termek_designx = 0;}
 	if ($_REQUEST[termek_aktiv] == "on") { $termek_aktivx = 1;}
 	else { $termek_aktivx = 0;}
 	if ($_REQUEST[termek_listaar] != "") { $termek_listaar = $_REQUEST[termek_listaar];}
@@ -20,8 +22,8 @@ If ($_REQUEST[ujmentes] == '1'){
 		$num_rows=$row[0];
 		$num_rows++;
 		$ujelemsorszam = $num_rows;
-		$result_termek = "INSERT INTO ".$_SESSION[adatbazis_etag]."_termekek (sorszam, csoport, nev, leiras, ar, aktiv, akcios)
-		VALUES ('$num_rows', '$_REQUEST[termek_kategoria]', '$_REQUEST[termek_megnevezes]', '$_REQUEST[termek_leiras]', $termek_listaar, $termek_aktivx, $termek_akciosx)";
+		$result_termek = "INSERT INTO ".$_SESSION[adatbazis_etag]."_termekek (sorszam, csoport, nev, leiras, ar, aktiv, akcios, design)
+		VALUES ('$num_rows', '$_REQUEST[termek_kategoria]', '$_REQUEST[termek_megnevezes]', '$_REQUEST[termek_leiras]', $termek_listaar, $termek_aktivx, $termek_akciosx, $termek_designx)";
 		mysql_query($result_termek);
 		$ujtermekszam = $num_rows;
 		header("Location: admin.php?tartalom=termek&termek=".$num_rows);
@@ -73,6 +75,8 @@ If ($_REQUEST[ment] == '1'){
 	If ($_REQUEST[termek] != ''){
 		if ($_REQUEST[termek_akcios] == "on") { $termek_akciosx = 1;}
 		else { $termek_akciosx = 0;}
+		if ($_REQUEST[termek_design] == "on") { $termek_designx = 1;}
+		else { $termek_designx = 0;}
 		if ($_REQUEST[termek_aktiv] == "on") { $termek_aktivx = 1;}
 		else { $termek_aktivx = 0;}
 		
@@ -85,7 +89,8 @@ If ($_REQUEST[ment] == '1'){
 					elem='$_REQUEST[termek_elem]',
 					csoport='$_REQUEST[termek_kategoria]',
 					aktiv='$termek_aktivx',
-					akcios='$termek_akciosx'
+					akcios='$termek_akciosx',
+					design='$termek_designx'
 					WHERE sorszam='$_REQUEST[termek]'";
 		mysql_query($result_termek);
 		
@@ -131,7 +136,7 @@ If ($_REQUEST[termek] == "") {
 else {
 	  $termekbehiv = $_REQUEST[termek];
 		
-	  $result = mysql_query("SELECT t.sorszam, t.nev, t.ar, t.csoport, t.szin, t.anyag, t.elem, t.leiras, t.akcios, t.aktiv, gcs.felirat_hu FROM ".$_SESSION[adatbazis_etag]."_termekek AS t
+	  $result = mysql_query("SELECT t.sorszam, t.nev, t.ar, t.csoport, t.szin, t.anyag, t.elem, t.leiras, t.akcios, t.aktiv, t.design, gcs.felirat_hu FROM ".$_SESSION[adatbazis_etag]."_termekek AS t
 						   LEFT JOIN ".$_SESSION[adatbazis_etag]."_galeriacsop AS gcs
 						   ON t.csoport = gcs.sorszam
 						   WHERE t.sorszam = $termekbehiv");
@@ -146,9 +151,11 @@ else {
 	  $termek_leiras = $a[leiras];
 	  $termek_ar = $a[ar];
 	  $termek_akcios = $a[akcios];
+	  $termek_design = $a[design];
 	  $termek_aktiv = $a[aktiv];
 
 	  if ($termek_akcios == '1'){ $termek_akcios = 'checked="checked"';}
+	  if ($termek_design == '1'){ $termek_design = 'checked="checked"';}
 	  if ($termek_aktiv == '1'){ $termek_aktiv = 'checked="checked"';}
 
 	  //termékfotók
@@ -213,6 +220,7 @@ $admin_torzs = '
 			<tr><td>Leírás:</td><td><textarea name="termek_leiras" rows="10" cols="40">' . $termek_leiras . '</textarea></td></tr>
 			<tr><td>Listaár:</td><td><input name="termek_listaar" size="30" type="text" value="' . $termek_ar . '" onkeyup="numerikusCheck(termek.termek_webar)" /></td></tr>
 			<tr><td>Akciós:</td><td><input name="termek_akcios" size="30" type="checkbox" '.$termek_akcios.' /></td></tr>
+			<tr><td>Design:</td><td><input name="termek_design" size="30" type="checkbox" '.$termek_design.' /></td></tr>
 			<tr><td>Aktív:</td><td><input name="termek_aktiv" size="30" type="checkbox" '.$termek_aktiv.' /></td></tr>
 			<tr><td>Végleges törlés:</td><td><input name="termek_torles" size="30" type="checkbox" '.$termek_torles.' /></td></tr>
 		</table>
