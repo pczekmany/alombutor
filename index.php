@@ -12,8 +12,12 @@ require_once('menu.php');
 
 require_once('tartalomvalasztas.php');
 
+$result = mysql_query("SELECT sorszam FROM ".$_SESSION[adatbazis_etag]."_log");
+$latogatoszam = 50 + mysql_num_rows($result);
+
 $array = array('tartalom' => $tartalom,
 		'alcim' => $alcim,
+		'latogatoszam' => $latogatoszam,
         'menulista' => $menulista,
         'extra_gombok' => $extra_gombok,
 		'admin_konyvtar' => $admin_konyvtar);

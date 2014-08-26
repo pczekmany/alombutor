@@ -11,6 +11,13 @@ if ($menu){
    }
 }
 else {	
+   
+   if (!$_SESSION[log]){
+	  $log = new log_db;
+	  $log->write('x', 'címlap');
+	  $_SESSION[log] = '1';
+   }
+   
    require_once('slider.php');
    
    $directory = 'designtermek_kep';

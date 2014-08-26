@@ -290,3 +290,13 @@ class navsav{
 		
 	}
 }
+
+
+class log_db {
+	public function write($user, $message) {
+        $idopont = date("Y-m-d H:i:s");
+        $sql2 = "INSERT INTO ".$_SESSION[adatbazis_etag]."_log (idopont, user, uri, message, host, user_agent, ip)
+            VALUES ('$idopont', '$user', '$_SERVER[REQUEST_URI]', '$message', '$_SERVER[REMOTE_HOST]', '$_SERVER[HTTP_USER_AGENT]', '$_SERVER[REMOTE_ADDR]')";
+            mysql_query($sql2);
+	}
+}
