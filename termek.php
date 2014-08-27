@@ -1,13 +1,18 @@
 <?php
-$result = mysql_query("SELECT nev, csoport, szin, leiras, ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE sorszam = $_REQUEST[id]");
+$result = mysql_query("SELECT nev, csoport, szin, leiras, ar, tol_ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE sorszam = $_REQUEST[id]");
 $a = mysql_fetch_row($result);
 $nev = $a[0];
 $csoport = $a[1];
 $szin = $a[2];
 $leiras = nl2br($a[3]);
 $ar = $a[4];
+$tol_ar = $a[5];
 
 $ar = number_format($ar, 0, ',', '.'). ' Ft';
+if ($tol_ar == '1'){
+   $ar .= '-tól';
+}
+
 
 $result = mysql_query("SELECT fajlnev_nagy, felirat_hu FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $_REQUEST[id]");
 while ($next_element = mysql_fetch_array($result)){

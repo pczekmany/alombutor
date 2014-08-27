@@ -19,7 +19,7 @@ while ($next_element = mysql_fetch_array($result)){
         <div><img src="termekkepek/'.$kep.'" alt="" /></div>
 		<span>'.$next_element[felirat_hu].'</span>
 		<span>'.$next_element[nev].'</span>
-        <span>'.$next_element[ar].'-tól</span>
+        <span>'.$next_element[ar].'</span>
     </a>';
 }
 
