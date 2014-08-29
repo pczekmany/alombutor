@@ -92,7 +92,7 @@ body{
 #balmenu a:hover{
    /*background-color: #bdb8b0;*/
    /*color: #42aee2;*/
-   color: #d63e8c;
+   color: #fa61b0;
    background-image: url('graphics/icon_menu_h2.png');
 }
 
@@ -399,4 +399,20 @@ body{
 
 .nyitva_kep:hover{
     background-image: url('graphics/nyitva_kep2.jpg') !important;
+}
+
+#latogatok span{
+   display: block;
+   clear: both;
+   float: right !important;
+   margin: 0px 30px 0px 0px;
+}
+
+#latogatok span:first-child{
+   float: left !important;
+   margin: 8px 0px 0px 58px !important;
+}
+#latogatok span:nth-child(2){
+   clear: none!important;
+   margin-top: 8px;
 }
