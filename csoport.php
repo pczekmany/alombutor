@@ -15,7 +15,7 @@ if ($_REQUEST[id] == 'akcios'){
 		} 
 			
         $lista .= '
-        <a href="?menu=termek&id='.$next_element[sorszam].'" class="termek_lista">
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'&amp;b=1" class="termek_lista">
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
 			<h2>'.$next_element[nev].'</h2>
             <p>'.$ar.'</p>
@@ -41,7 +41,7 @@ if ($_REQUEST[id] == 'design'){
 		} 
 			
         $lista .= '
-        <a href="?menu=termek&id='.$next_element[sorszam].'" class="termek_lista">
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" class="termek_lista">
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
 			<h2>'.$next_element[nev].'</h2>
             <p>'.$ar.'</p>
@@ -69,7 +69,7 @@ if (($_REQUEST[id] != 'akcios') AND ($_REQUEST[id] != 'design')){
 		} 
 			
         $lista .= '
-        <a href="?menu=termek&id='.$next_element[sorszam].'" class="termek_lista">
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&amp;id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" class="termek_lista">
             
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
 			<h2>'.$next_element[nev].'</h2>

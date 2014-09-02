@@ -185,9 +185,9 @@ body{
    display: block;
    width: 277px;
    text-align: left;
-   color: #f6eeeb;
+   color: #fff !important;
    margin-bottom: 10px;
-   background-color: #2ac1ba;
+   background-color: #ED439B;
    font-size: 16px;
    text-decoration: none;
    padding: 18px 12px 18px 12px !important;

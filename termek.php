@@ -35,6 +35,12 @@ while ($next_element = mysql_fetch_array($result)){
 if ($szin){$szin = '<tr><td>Elérhető színek:</td><td>'.$szin.'</td></tr>';}
 if ($elem){$elem = '<tr><td>Elemek:</td><td>'.$elem.'</td></tr>';}
 
+if ($_REQUEST[b] == '1'){
+   $csoport = 'akcios';
+} else {
+   
+}
+
 $tartalom = '
 <div id="tartalom_h">
    <h1>'.$nev.'</h1>
@@ -50,5 +56,5 @@ $tartalom = '
    <div class="galeria">
 	  '.$galeria.'
    </div>
-   <a href="?menu=csoport&id='.$csoport.'" class="vissza">vissza</a>
+   <a href="?menu=csoport&id='.$csoport.'#anchor_'.$_REQUEST[a].'" class="vissza">vissza</a>
 </div>';
