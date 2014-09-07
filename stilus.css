@@ -426,3 +426,18 @@ body{
    clear: none!important;
    margin-top: 8px;
 }
+#facebook {
+display: inline-block;
+width: 100px;
+margin-top: 5px;
+background-image: url('graphics/fb.png');
+background-repeat: no-repeat;
+background-position: 2px center;
+text-align: left;
+padding: 5px 10px 5px 35px;
+border-radius: 8px;
+text-transform: uppercase;
+color: #f6eeeb;
+font-size: 10px;
+text-decoration: none;
+}
