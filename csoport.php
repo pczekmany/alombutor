@@ -58,7 +58,7 @@ if (($_REQUEST[id] != 'akcios') AND ($_REQUEST[id] != 'design')){
 
     $result = mysql_query("SELECT sorszam, nev, ar, tol_ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE csoport = $_REQUEST[id]");
     while ($next_element = mysql_fetch_array($result)){
-        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam]");
+        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam] ORDER BY kepszam DESC");
         $a = mysql_fetch_row($result2);
         $kep = $a[0];
 

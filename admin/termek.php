@@ -168,13 +168,13 @@ else {
 
 	  //termékfotók
 	$kepszam = 0;
-	$resultx = mysql_query("SELECT sorszam, fajlnev_nagy, felirat_hu, kepszam, id FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $_REQUEST[termek]");
+	$resultx = mysql_query("SELECT sorszam, fajlnev_nagy, felirat_hu, kepszam, id FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $_REQUEST[termek] ORDER BY kepszam DESC");
 	while ($next_elementx = mysql_fetch_array($resultx)){
-	  
 		  $kepszam++;
-		  if ($next_elementx[kepszam] == 10){
+		  if ($next_elementx['kepszam'] == '10'){
 			 $fokepx = 'checked="checked"';}
-		  else {fokepx == '';}
+		  else {
+			 $fokepx = '';}
 		  $termekfotok .= '
 			  <div style="float: left; margin: 10px;">
 				  <img src="termekkepek/'.$next_elementx[fajlnev_nagy].'" width="120" alt="kép" /><br />

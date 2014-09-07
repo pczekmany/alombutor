@@ -287,6 +287,15 @@ body{
    float: left;
 }
 
+#lablec a {
+   color: #fff;
+   text-decoration: none;
+}
+
+#lablec a:hover {
+   text-decoration: underline;
+}
+
 .termek_lista{
     width: 196px;
     text-align: center;
