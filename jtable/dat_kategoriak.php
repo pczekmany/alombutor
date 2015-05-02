@@ -44,9 +44,7 @@ try
 	else if($_GET["action"] == "create")
 	{
 		//Insert record into database
-		$result = mysql_query("INSERT INTO $data_table
-				(felirat_hu, sorrendszam) VALUES
-				('" . $_POST["felirat_hu"] . "', '" . $_POST["sorrendszam"] . "');");
+		$result = mysql_query("INSERT INTO $data_table (felirat_hu, sorrendszam) VALUES ('" . $_POST["felirat_hu"] . "', '" . $_POST["sorrendszam"] . "');");
 		
 		//Get last inserted record (to return to jTable)
 		$result = mysql_query("SELECT * FROM $data_table WHERE sorszam = LAST_INSERT_ID();");
