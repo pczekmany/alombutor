@@ -81,4 +81,5 @@ if (($_REQUEST[id] != 'akcios') AND ($_REQUEST[id] != 'design')){
 $tartalom = '<div id="tartalom_h">
 <h1>'.$csoport_felirat.'</h1>
 '.$lista.'
+<a href="'.$_SERVER[REQUEST_URI].'#top" class="vissza">Ugrás a lap tetejére</a>
 </div>';
