@@ -50,7 +50,33 @@ if ($_REQUEST[id] == 'design'){
     
 } 
 
-if (($_REQUEST[id] != 'akcios') AND ($_REQUEST[id] != 'design')){
+if ($_REQUEST[id] == 'uj'){
+    
+    $csoport_felirat = 'Új termékek';
+
+    $result = mysql_query("SELECT sorszam, nev, ar, tol_ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE uj = 1");
+    while ($next_element = mysql_fetch_array($result)){
+        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam]");
+        $a = mysql_fetch_row($result2);
+        $kep = $a[0];
+
+            $ar = number_format($next_element[ar], 0, ',', '.'). ' Ft';
+		
+		if ($next_element[tol_ar] == '1'){
+		   $ar .= '-tól';
+		} 
+			
+        $lista .= '
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" class="termek_lista">
+            <div><img src="termekkepek/'.$kep.'" alt="" /></div>
+			<h2>'.$next_element[nev].'</h2>
+            <p>'.$ar.'</p>
+        </a>';
+    }
+    
+}
+
+if (($_REQUEST[id] != 'akcios') AND ($_REQUEST[id] != 'design')AND ($_REQUEST[id] != 'uj')){
 
     $result2 = mysql_query("SELECT felirat_hu FROM ".$_SESSION[adatbazis_etag]."_galeriacsop WHERE sorszam = $_REQUEST[id]");
     $a = mysql_fetch_row($result2);

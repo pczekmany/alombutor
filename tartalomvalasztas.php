@@ -32,7 +32,28 @@ else {
 		 $akciostermek_kep = '<img src="akciostermek_kep/'.$value.'" alt="" />';
    }
    
+   $result = mysql_query("SELECT sorszam, nev, ar, tol_ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE uj = 1 LIMIT 3");
+    while ($next_element = mysql_fetch_array($result)){
+        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam]");
+        $a = mysql_fetch_row($result2);
+        $kep = $a[0];
+
+            $ar = number_format($next_element[ar], 0, ',', '.'). ' Ft';
+		
+		if ($next_element[tol_ar] == '1'){
+		   $ar .= '-tól';
+		} 
+			
+        $uj_termek_lista .= '
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" class="termek_lista" style="margin: 0px 7px 10px 6px;">
+            <div><img src="termekkepek/'.$kep.'" alt="" /></div>
+			<h2>'.$next_element[nev].'</h2>
+            <p>'.$ar.'</p>
+        </a>';
+    }
+   
    $array = array('slider' => $slider,
+	   'uj_termek_lista' => $uj_termek_lista,
 	   'akciostermek_kep' => $akciostermek_kep,
 	   'designtermek_kep' => $designtermek_kep);
    
