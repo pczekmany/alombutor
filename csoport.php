@@ -95,7 +95,7 @@ if (($_REQUEST[id] != 'akcios') AND ($_REQUEST[id] != 'design')AND ($_REQUEST[id
 		} 
 			
         $lista .= '
-        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&amp;id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" title="Kattintson a nagyításhoz!" alt="Kattintson a nagyításhoz!" class="termek_lista">
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&amp;id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" title="Kattintson a részletekért!" alt="Kattintson a részletekért!" class="termek_lista">
             
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
 			<h2>'.$next_element[nev].'</h2>

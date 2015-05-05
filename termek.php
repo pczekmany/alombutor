@@ -17,7 +17,7 @@ if ($tol_ar == '1'){
 $result = mysql_query("SELECT fajlnev_nagy, felirat_hu FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $_REQUEST[id]");
 while ($next_element = mysql_fetch_array($result)){
     $galeria .= '
-    <a href="termekkepek/'.$next_element[fajlnev_nagy].'" class="highslide" onclick="return hs.expand (this, {dimmingOpacity: 0.90})">
+    <a href="termekkepek/'.$next_element[fajlnev_nagy].'" class="highslide" title="Kattintson a nagyításhoz!" alt="Kattintson a nagyításhoz!" onclick="return hs.expand (this, {dimmingOpacity: 0.90})">
         <img src="termekkepek/'.$next_element[fajlnev_nagy].'" alt="" />
     </a>
     <div class="highslide-caption">

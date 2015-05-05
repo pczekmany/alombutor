@@ -45,7 +45,7 @@ else {
 		} 
 			
         $uj_termek_lista .= '
-        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" class="termek_lista" style="margin: 0px 7px 10px 6px;">
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" title="Kattintson a részletekért!" alt="Kattintson a részletekért!" class="termek_lista" style="margin: 0px 7px 10px 6px;">
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
 			<h2>'.$next_element[nev].'</h2>
             <p>'.$ar.'</p>
