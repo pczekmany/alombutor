@@ -5,7 +5,7 @@ if ($_REQUEST[id] == 'akcios'){
 
     $result = mysql_query("SELECT sorszam, nev, ar, tol_ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE akcios = 1");
     while ($next_element = mysql_fetch_array($result)){
-        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam]");
+        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam] ORDER BY kepszam DESC");
         $a = mysql_fetch_row($result2);
         $kep = $a[0];
 
@@ -15,7 +15,7 @@ if ($_REQUEST[id] == 'akcios'){
 		} 
 			
         $lista .= '
-        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'&amp;b=1" class="termek_lista">
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'&amp;b=1" title="Kattintson a részletekért!" alt="Kattintson a részletekért!" class="termek_lista">
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
 			<h2>'.$next_element[nev].'</h2>
             <p>'.$ar.'</p>
@@ -30,7 +30,7 @@ if ($_REQUEST[id] == 'design'){
 
     $result = mysql_query("SELECT sorszam, nev, ar, tol_ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE design = 1");
     while ($next_element = mysql_fetch_array($result)){
-        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam]");
+        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam] ORDER BY kepszam DESC");
         $a = mysql_fetch_row($result2);
         $kep = $a[0];
 
@@ -41,7 +41,7 @@ if ($_REQUEST[id] == 'design'){
 		} 
 			
         $lista .= '
-        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" class="termek_lista">
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" title="Kattintson a részletekért!" alt="Kattintson a részletekért!" class="termek_lista">
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
 			<h2>'.$next_element[nev].'</h2>
             <p>'.$ar.'</p>
@@ -56,7 +56,7 @@ if ($_REQUEST[id] == 'uj'){
 
     $result = mysql_query("SELECT sorszam, nev, ar, tol_ar FROM ".$_SESSION[adatbazis_etag]."_termekek WHERE uj = 1");
     while ($next_element = mysql_fetch_array($result)){
-        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam]");
+        $result2 = mysql_query("SELECT fajlnev_nagy FROM ".$_SESSION[adatbazis_etag]."_galeriakepek WHERE sorszam = $next_element[sorszam] ORDER BY kepszam DESC");
         $a = mysql_fetch_row($result2);
         $kep = $a[0];
 
@@ -67,7 +67,7 @@ if ($_REQUEST[id] == 'uj'){
 		} 
 			
         $lista .= '
-        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" class="termek_lista">
+        <a name="anchor_'.$next_element[sorszam].'" href="?menu=termek&id='.$next_element[sorszam].'&amp;a='.$next_element[sorszam].'" title="Kattintson a részletekért!" alt="Kattintson a részletekért!" class="termek_lista">
             <div><img src="termekkepek/'.$kep.'" alt="" /></div>
 			<h2>'.$next_element[nev].'</h2>
             <p>'.$ar.'</p>
